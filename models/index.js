@@ -14,14 +14,14 @@ if (config.use_env_variable) {
   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
-// console.log("Reaching fs");
-// console.log(
-//               fs
-//               .readdirSync(__dirname)
-//               .filter(function(file) {
-//                 return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
-//               })
-//             );
+console.log("Reaching fs");
+console.log(
+              fs
+              .readdirSync(__dirname)
+              .filter(function(file) {
+                return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
+              })
+            );
 
 fs
   .readdirSync(__dirname)
@@ -33,8 +33,8 @@ fs
     db[model.name] = model;
     console.log("db: ",db);
   });
-// console.log("db: ",db);
-// console.log("Reaching Object.keys");
+console.log("db: ",db);
+console.log("Reaching Object.keys");
 
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
@@ -46,5 +46,11 @@ console.log("models in db: ", db);
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
+//Coding Schema Relations
+// require('../models/gameInfo.js')(sequelize, Sequelize);
+// require('../models/league.js')(sequelize, Sequelize);
+// db.gameInfo.belongsTo(db.league);  
+// db.league.hasMany(db.gameInfo);
 
 module.exports = db;
