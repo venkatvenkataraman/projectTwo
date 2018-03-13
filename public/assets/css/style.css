@@ -3,21 +3,42 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: normal 15px/24px 'Raleway', sans-serif;
+    color: gray;
 }
 
-/* body {
-    background-image: url("../images/background.png");
-} */
+.container {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
 
 .ss-grad {
     background-clip: text;
     -webkit-background-clip: text;
 }
 
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+.card-img-top {
+    position: relative;
+    opacity: 1;
+    transition: .2s ease;
+    backface-visibility: hidden;
+}
+
+.userName {
+    position: absolute;
+    transition: .2s ease;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     text-align: center;
 }
+
+.user:hover .card-img-top {
+    opacity: 0.3;
+  }
+
+.user:hover .userName {
+    opacity: 1;
+  }
