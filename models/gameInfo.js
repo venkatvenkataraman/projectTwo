@@ -6,6 +6,9 @@ module.exports = function(sequelize, DataTypes){
     playerName: {
         type: DataTypes.STRING,
     },
+    checkedIn: {
+      type: DataTypes.BOOLEAN,
+    },
     commander: {
         type: DataTypes.STRING,
         },
@@ -20,12 +23,14 @@ module.exports = function(sequelize, DataTypes){
   });
 
   GameInfo.associate = function(models) {
-    // We're saying that a GameInfo should belong to an League
+    // We're saying that a GameInfo should belong to a League
     // A GameInfo can't be created without a League due to the foreign key constraint
     GameInfo.belongsTo(models.League, {
       foreignKey: {
         allowNull: false
-      }
+      },
+      // Adam added following line to get around index.js error in order of processing of .js files
+      onDelete: "cascade"
     });
   };
 

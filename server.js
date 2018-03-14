@@ -56,8 +56,8 @@ db.sequelize.sync({force:true})
 
 .then(function(){
   return db.GameInfo.bulkCreate([
-    { playerName: "Vanessa", commander: "Freya", assignedTable: 1, points: 5, LeagueId: 1},
-    { playerName: "Matt", commander: "Mogus", assignedTable: 1, points: 6, LeagueId: 1},
+    { playerName: "Vanessa", checkedIn: 1, commander: "Freya", assignedTable: 1, points: 5, LeagueId: 1},
+    { playerName: "Matt", checkedIn: 1, commander: "Mogus", assignedTable: 1, points: 6, LeagueId: 1},
   ]);
 })
 
