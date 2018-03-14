@@ -42,3 +42,9 @@
 .user:hover .userName {
     opacity: 1;
 }
+
+
+form.signup,
+form.login {
+  margin-top: 50px;
+}
