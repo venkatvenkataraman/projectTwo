@@ -28,5 +28,18 @@ module.exports = function(sequelize, DataTypes) {
   User.hook("beforeCreate", function(user) {
     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
   });
+
+  User.associate = function(models) {
+    // We're saying that a League should belong to an User(Admin).
+    // A League can't be created without an User(Admin) due to the foreign key constraint
+    User.hasMany(models.League, {
+      // foreignKey: {
+      //   allowNull: false
+      // },
+      // // Adam added following line to get around index.js error in order of processing of .js files
+      onDelete: "cascade"
+    });
+  };
+
   return User;
 };
