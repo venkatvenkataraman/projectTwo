@@ -11,9 +11,9 @@ module.exports = function(sequelize, DataTypes) {
       // validate: {
       //   len: [1]
     },
-    leaguePlayers: {
-      type: DataTypes.JSON,  
-    },
+    // leaguePlayers: {
+    //   type: DataTypes.JSON,
+    // },
     leaguePoints: {
        type: DataTypes.INTEGER,
     },

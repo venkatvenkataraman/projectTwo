@@ -8,13 +8,14 @@ module.exports = function(sequelize, DataTypes){
     },
     checkedIn: {
       type: DataTypes.BOOLEAN,
+      defaultValue: false
     },
     commander: {
         type: DataTypes.STRING,
         },
     assignedTable: {
         type: DataTypes.INTEGER,
-        allowNull: false,  
+        allowNull: false,
         },
     points:{
         type: DataTypes.INTEGER,
