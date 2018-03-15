@@ -45,12 +45,21 @@ require("./routes/html-routes.js")(app);
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 <<<<<<< HEAD
+<<<<<<< HEAD
 db.sequelize.sync().then(function() {
 =======
 db.sequelize.sync({force:true})
+=======
+>>>>>>> 33cc46a96efbabf55f9964df52d9944a108dd74b
 
 // Force the creation!
-// db.Leagues.sync({force: true}) // this will drop the "League" table first and re-create it afterwards
+// db.League.sync({force: true}) // this will drop the "Leaague" table first and re-create it afterwards
+// .then(function(){
+//   db.Gameinfo.sync({force: true}) // this will drop the "Gameinfo" table first and re-create it afterwards
+//   console.log("GameInfo and League tables dropped from databse and recreated");
+// })
+
+// db.sequelize.sync({force:true})
 
 // To insert ONE League
 // .then(function(){
@@ -58,7 +67,9 @@ db.sequelize.sync({force:true})
 // 		leagueName: "Austinerds",
 // 	});
 // })
+
 // To insert MANY Leagues
+<<<<<<< HEAD
 .then(function(){
      return db.League.bulkCreate([
         { leagueName: "Austinerds", leaguePlayers: ["Vanessa", "Fred", "Matt", "Bob", "Venkat", "Keith", "Doug"],
@@ -86,11 +97,39 @@ db.sequelize.sync({force:true})
     console.log("App listening on PORT " + PORT);
   });
 });
+=======
+// .then(function(){
+//      return db.League.bulkCreate([
+//         { leagueName: "Austinerds", leaguePlayers: ["Vanessa", "Fred", "Matt", "Bob", "Venkat", "Keith", "Doug"],
+//           leaguePoints: 85, leagueStanding: "First", leagueCurrentGames: 3,  
+//           leagueAdminID: "Vanessa", leaguePassword: "guessit" },
+>>>>>>> 33cc46a96efbabf55f9964df52d9944a108dd74b
 
-// Syncing our sequelize models and then starting our Express app
-// =============================================================
-// db.sequelize.sync({ force: true }).then(function() {
-//   app.listen(PORT, function() {
+//         { leagueName: "Cowboys", leaguePlayers: ["Jill", "Jack", "Jim", "Joey", "Joseph", "Jeb"],
+//           leaguePoints: 35, leagueStanding: "Second", leagueCurrentGames: 2,  
+//           leagueAdminID: "Bob", leaguePassword: "??abhc/" },
+
+//      ]);
+// })
+
+// .then(function(){
+//   return db.Gameinfo.bulkCreate([
+//     { playerName: "Vanessa", checkedIn: 1, commander: "Freya", assignedTable: 1, points: 5, LeagueId: 1},
+//     { playerName: "Matt", checkedIn: 1, commander: "Mogus", assignedTable: 1, points: 6, LeagueId: 1},
+//   ]);
+// })
+
+// .then(function() {
+//   // app.listen(port);
+//     app.listen(PORT, function() {
 //     console.log("App listening on PORT " + PORT);
 //   });
 // });
+
+// Syncing our sequelize models and then starting our Express app
+// =============================================================
+db.sequelize.sync({ force: false }).then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
+});
