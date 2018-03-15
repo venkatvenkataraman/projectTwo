@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Passport Authentication</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <h2>League Creation</h2>
+                <form class="signup">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">League Name</label>
+                        <input type="email" class="form-control" id="email-input" placeholder="Enter League Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Player Name</label>
+                        <input type="password" class="form-control" id="password-input" placeholder="Enter Name Here">
+                    </div>
+                    <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span class="sr-only">Error:</span>
+                        <span class="msg"></span>
+                    </div>
+                    <button id="addPlayer" type="submit" class="btn btn-default">Add</button>
+                </form>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        Current Players
+                    </div>
+                    <div class="card-body">
+                        <ul id="" class="list-group">
+                            <li class="list-group-item w3-hover-shadow">Matt</li>
+                            <li class="list-group-item w3-hover-shadow">Bob</li>
+                            <li class="list-group-item w3-hover-shadow">Venkat</li>
+                            <li class="list-group-item w3-hover-shadow">Fred</li>
+                            <li class="list-group-item w3-hover-shadow">Vanessa</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container text center">
+        <button id="submitLeague" type="submit" class="btn btn-default">Submit</button>
+    </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/signup.js"></script>
+        <script src="https://code.jquery.com/jquery.js"></script>
+
+</body>
+
+</html>
