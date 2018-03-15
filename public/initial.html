@@ -20,7 +20,7 @@
 
     <nav class="navbar fixed-top w3-pale-yellow w3-card">
         <a class="navbar-brand" href="#">
-            <img src="assets/images/thumbnail.png" width="30" class="d-inline-block align-top w3-card rounded-circle" alt="Magic The Gathering Icon">
+            <img src="images/thumbnail.png" width="30" class="d-inline-block align-top w3-card rounded-circle" alt="Magic The Gathering Icon">
         </a>
     </nav>
 
@@ -32,7 +32,7 @@
             <div class="card-body text-center w3-hover-shadow">
                 <div class="row">
                     <div class="col-md-8">
-                        <form id="league">
+                        <form>
                             <div class="form-group">
                                 <label for="leagueName">League Name</label>
                                 <input type="text" class="form-control" id="leagueName" placeholder="Dragons">
@@ -51,13 +51,11 @@
                                 <label for="addPlayers">Add Players</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="player">Name</span>
+                                        <span class="input-group-text" id="player">Name | Commander</span>
                                     </div>
                                     <input id="name" type="text" class="form-control">
-                                    <button type="button" class="btn btn-danger addPlayer">Add</button>
-                                    <!-- <input id="commander" type="text" class="form-control"> -->
+                                    <input id="commander" type="text" class="form-control">
                                 </div>
-
                             </div>
                             <button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
                         </form>
@@ -65,28 +63,27 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-3">
                         <form>
-                            <div class="form-group" id="playerList">
+                            <div class="form-group">
                                 <label for="leagueName">Player List</label>
                                 <hr>
-                                <div class="form-check ">
-                                    <input class="form-check-input checkbox position-static" value=""
-                                     type="checkbox" aria-label="...">
-                                    <label for="leagueName">Player Name</label>
-                                </div>
-                                <div class="form-check ">
-                                    <input class="form-check-input checkbox position-static"  type="checkbox" aria-label="...">
+                                <div class="form-check">
+                                    <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
                                     <label for="leagueName">Player Name</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input checkbox position-static"  type="checkbox" aria-label="...">
+                                    <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
                                     <label for="leagueName">Player Name</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input checkbox position-static" type="checkbox"   aria-label="...">
+                                    <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
                                     <label for="leagueName">Player Name</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input checkbox position-static" type="checkbox"   aria-label="...">
+                                    <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                                    <label for="leagueName">Player Name</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
                                     <label for="leagueName">Player Name</label>
                                 </div>
                             </div>
@@ -101,17 +98,9 @@
         <i class="ss ss-pmtg2 ss-foil ss-grad ss-2x"></i>
     </div>
 
-<<<<<<< HEAD
-  <script src="assets/js/initial.js" type="text/javascript"></script>
-  <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script> -->
-
-=======
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
->>>>>>> 33cc46a96efbabf55f9964df52d9944a108dd74b
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
@@ -119,20 +108,14 @@
     <script>
         window.onload = function () {
           var submitButton = document.getElementById("submitButton");
-
           submitButton.onclick = function (e) {
             e.preventDefault();
             var sel = document.getElementById("exampleFormControlSelect1");
             var gameCount = sel.options[sel.selectedIndex].text;
             window.location.href = "game.html?gameCount=" + gameCount;
           }
-
         }
     </script>
 </body>
 
-<<<<<<< HEAD
-<!-- <i class="ss ss-pmtg2 ss-foil ss-grad"></i> -->
-=======
 </html>
->>>>>>> 33cc46a96efbabf55f9964df52d9944a108dd74b

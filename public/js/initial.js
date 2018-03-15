@@ -13,6 +13,7 @@ $(document).ready(function() {
   var gameId;
   var LeagueId;
 
+//============================
   $(".name").on("click", ".addPlayer", newPlayer);
 
   function newPlayer(event){
@@ -29,7 +30,7 @@ $(document).ready(function() {
     submitPlayer(playerData);
   };
 
-  
+
 
   function getLeagueData() {
     $.get("/api/gameInfo", renderPlayerList);
