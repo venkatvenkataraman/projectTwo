@@ -18,6 +18,7 @@ INSERT INTO `Users` (`id`,`email`,`password`,`createdAt`,`updatedAt`)
 VALUES
 (DEFAULT,'test@gmail.com','$2a$10$52cI1hicMAMs/AESBoFU5uOEstJgySkYpvj/1arlxsEKCBWI9Beum','2018-03-14 22:25:48','2018-03-14 22:25:48'),
 (DEFAULT,'vanessa@gmail.com','$2a$10$.9CrkCVl21mq3pp0qfdvpurfn2gnlNwerGrDOovGnrUTLTZm68KzO','2018-03-14 22:31:58','2018-03-14 22:31:58'),
+(DEFAULT,'matt@gmail.com','$2a$10$HKawFSBKM823ae0bWulgBeu5Sks1Y0eF34OYe6saJHs93H1Ki/tFq','2018-03-15 19:46:13','2018-03-15 19:46:13'),
 (DEFAULT,'jack@gmail.com','$2a$10$HQrp8AuxvTZrklms6NUHK.4StyT1gdaSBYlj5vlOXoeZ.thLtbWc2','2018-03-14 22:34:26','2018-03-14 22:34:26');
 
 INSERT INTO `Leagues` (`id`,`leagueName`,`leaguePlayers`,`leaguePoints`,`leagueStanding`,`leagueCurrentGames`,`createdAt`,`updatedAt`, `UserId`) 
