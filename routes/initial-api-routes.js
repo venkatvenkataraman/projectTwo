@@ -33,6 +33,7 @@ module.exports = function(app) {
       }
     }).then(function(dbGame) {
       res.json(dbGame);
+    });
   });
 
-});
+};

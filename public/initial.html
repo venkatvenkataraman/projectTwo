@@ -30,30 +30,26 @@
         </div>
     </nav>
 
+    <nav class="navbar fixed-top w3-pale-yellow w3-card">
+        <a class="navbar-brand" href="#">
+            <img src="images/thumbnail.png" width="30" class="d-inline-block align-top w3-card rounded-circle" alt="Magic The Gathering Icon">
+        </a>
+    </nav>
+
     <div class="card border-0">
         <div class="container">
-            <div class="card-header bg-white border-0">
-                <h3>Create League</h3>
-            </div>
-            <div class="card-body text-center w3-hover-shadow">
-
-                <!-- added by Venkat -->
-                <div class="row">
-                        <!-- <div class="col-md-9 col-md-offset-3"> -->
-                        <div class="col-md-9">
-                            <h4>Welcome <span class="member-name"></span></h4>
-                        </div>
+            <div class="row">
+                <div class="col-md-12 card-header bg-white border-0" id="leagueName">
+                    <h3>Austinerds</h3>
                 </div>
+            </div>
 
-                <div class="row">
-                    <div class="col-md-9">
-                        <form>
+            <div class="row card-body text-center w3-hover-shadow">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
                             <div class="form-group">
-                                <label for="leagueName">League Name</label>
-                                <input type="text" class="form-control" id="leagueName" placeholder="Dragons">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">Number of Games</label>
+                                <h5><label for="exampleFormControlSelect1">Number of Games</label></h5>
                                 <select class="form-control" id="exampleFormControlSelect1">
                                     <option>1</option>
                                     <option>2</option>
@@ -62,97 +58,66 @@
                                     <option>5</option>
                                 </select>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
                             <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Number of Tables</label>
-                                    <select class="form-control" id="exampleFormControlSelect1">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
-                                        <option>8</option>
-                                        <option>9</option>
-                                        <option>10</option>
-
-                                    </select>
-                                </div>
-                            <!-- <div class="form-group">
-                                <label for="addPlayers">Add Players</label>
+                                <h5>
+                                    <label for="player">Add New Player</label>
+                                </h5>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="player">Name | Commander</span>
+                                        <span class="input-group-text" id="player">Name</span>
                                     </div>
                                     <input id="name" type="text" class="form-control">
-                                    <input id="commander" type="text" class="form-control">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary addPlayer" type="button">Add</button>
+                                    </div>
                                 </div>
-                            </div> -->
-                            <!-- <button type="submit" class="btn btn-primary" id="submitButton">Submit</button> -->
-                        </form>
-                    </div>
-                    <div class="col-md-3">
-                            <h3>Current Number of Players</h3>
-                        <div class="card-body">
-                            <h1 id="players">2</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="card border-0">
-        <div class="container">
-            <div class="card-header bg-white border-0">
-                <h3>Add Players</h3>
-            </div>
-            <div class="card-body text-center w3-hover-shadow">
-                <div class="row">
-                    <div class="col-md-10">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="player">Name | Commander | Points</span>
                             </div>
-                            <input id="name" type="text" class="form-control">
-                            <input id="commander" type="text" class="form-control">
-                            <input id="commander" type="text" class="form-control">
                         </div>
                     </div>
-                    <div class="col-md-2">
-                        <button class="w3-button w3-round-large w3-light-green">Add Player</button>
+                    <br>
+
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <h4><strong>Members</strong></h4>
+                            <hr>
+                        </div>
+                        <div class="col-md-4"></div>
                     </div>
-                </div>
-                <hr>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">
-                            <input type="checkbox" aria-label="Checkbox for following text input">
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h5>Player</h5>
+                        </div>
+                        <div class="col-md-4">
+                            <h5>Commander</h5>
+                        </div>
+                        <div class="col-md-4">
+                            <h5>Points</h5>
                         </div>
                     </div>
-                    <label id="name" for="leagueName">Matt</label> |
-                    <label id="commander" for="leagueName">Demogorgon</label> |
-                    <label id="points" for="leagueName">100</label>
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button">Edit</button>
-                        <button class="btn btn-outline-secondary" type="button">Delete</button>
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-4" id="playerList"></div>
+                        <div class="col-md-4" id="commanderList"></div>
+                        <div class="col-md-4" id="points"></div>
                     </div>
-                </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">
-                            <input type="checkbox" aria-label="Checkbox for following text input">
+                    <div class="dynamicPlayers">
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card-body text-center">
+                                <button id="startGame" class="btn btn-block btn-outline-secondary start" type="submit">Click To Start Game</button>
+                            </div>
                         </div>
                     </div>
-                    <label id="name" for="leagueName">Matt</label> |
-                    <label id="commander" for="leagueName">Demogorgon</label> |
-                    <label id="points" for="leagueName">100</label>
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button">Edit</button>
-                        <button class="btn btn-outline-secondary" type="button">Delete</button>
-                    </div>
                 </div>
-                <button class="btn btn-outline-secondary" type="Submit">Submit</button>
             </div>
         </div>
     </div>
@@ -160,8 +125,6 @@
     <div class="navbar fixed-bottom w3-pale-yellow w3-card-4">
         <i class="ss ss-pmtg2 ss-foil ss-grad ss-2x"></i>
     </div>
-
-    <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -172,8 +135,9 @@
     <!-- Added by Venkat -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/initial.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
 
-    <script>
+    <!-- <script>
         window.onload = function () {
           var submitButton = document.getElementById("submitButton");
           submitButton.onclick = function (e) {
@@ -183,7 +147,7 @@
             window.location.href = "game.html?gameCount=" + gameCount;
           }
         }
-    </script>
+    </script> -->
 </body>
 
 </html>
