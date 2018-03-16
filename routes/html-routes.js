@@ -42,7 +42,9 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/initial.html"));
   });
 
-  app.get("/createleague", isAuthenticated, function(req, res) {
+  //Modified by Venkat
+  // app.get("/createleague", isAuthenticated, function(req, res) {
+  app.get("/createleague", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/createleague.html"));
   });
 

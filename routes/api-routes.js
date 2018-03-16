@@ -25,7 +25,6 @@ module.exports = function(app) {
       // modified by Venkat
       // res.redirect(307, "/api/login");
       console.log("loading the createleague page now");
-      console.log(res.json("/createleague"));
       res.json("/createleague");
     }).catch(function(err) {
       console.log(err);
