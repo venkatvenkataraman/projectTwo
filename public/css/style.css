@@ -6,13 +6,13 @@ body, html {
 }
 
 body {
-  background-image: url("images/225773675-mtg-land-wallpaper.jpg");
+  background-image: url("../images/225773675-mtg-land-wallpaper.jpg");
   background-color: black;
 }
 
 .bg {
     /* The image used */
-    background-image: url("images/225773675-mtg-land-wallpaper.jpg");
+    background-image: url("../images/225773675-mtg-land-wallpaper.jpg");
 
     /* Full height */
     height: 45%;
