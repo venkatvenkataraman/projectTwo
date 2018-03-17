@@ -49,3 +49,12 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+
+.teamMember {
+  text-align: left;
+  padding-left: 50px;
+}
+
+.form-check>label {
+  padding-left: 20px;
+}

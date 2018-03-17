@@ -31,7 +31,7 @@ $(document).ready(function() {
         playerName: name.val().trim(),
         checkedIn: true,
         commander: "none",
-        table: 0,
+        assignedTable: 0,
         points: 0,
         LeagueId: 1
       };
@@ -50,7 +50,7 @@ $(document).ready(function() {
       $.get("/api/gameInfo", renderPlayerList);
     }
 
-
+//=============== DYNAMIC PLAYERLIST CREATION ===========
     function renderPlayerList(data) {
       leaguePlayers = data;
       console.log("data", leaguePlayers);
@@ -65,10 +65,8 @@ $(document).ready(function() {
         player.append(inputElement);
         player.append(labelElement);
 
-        var commander = $("<div class='col-md-4'><h6><span>"+data[i].commander+"<button class='btn btn-outline-secondary' type='button'>Edit</button></span></h6></div>");
-        // var commander = $("<input type='text' class='form-control' id='commander'"+[i]+"readonly><section class='input-group-addon'><span class='glyphicon glyphicon-pencil' onclick=editcommander+[i+1]+"></span></div>");
-        // // $(commander).append(editCommander);
-        // $("#commanderList").append(commander);
+        var commander = $("<input type='text' class='col-md-3 form-control cmdr' value=" + data[i].commander + " readonly /><button class='col-md-1  btn btn-outline-secondary editCmdr' type='button'>Edit</button></div>");
+
         var playerPoints = $("<div class='col-md-4'>"+data[i].points+"<span><button class='btn btn-outline-secondary' type='button'>Edit</button></span></div>");
         // $("#points").append(playerPoints);
         $(newRow).append(player);
@@ -82,6 +80,21 @@ $(document).ready(function() {
       $(this).prop("checked");
     });
 
+    // $('.cmdr').toggle('readonly');
+    $('.editCmdr').click(function () {
+      console.log("readonly");
+      $(this).toggle("readonly")
+        // if ($(this).parents().siblings('input').is('[readonly]')) {
+        //     $(this).parents().siblings('input').prop('readonly', false); //turns the readonly off
+        //     $(this).toggleClass('hide'); //hide one glyphicon
+        //     $(this).siblings('.glyphicon-pencil').toggleClass('hide');
+        // } else {
+        //     $(this).toggleClass('hide'); //hide one glyphicon
+        //     $(this).siblings('.glyphicon-ok').toggleClass('hide');
+        //     $(this).parents().siblings('input').prop('readonly', true); //turns the readonly off
+        // }
+    });
+//================ When START GAME is clicked ==============
     $(".start").click(function(event) {
       event.preventDefault();
       // store the number of games selected into the gameCount variable
@@ -93,7 +106,7 @@ $(document).ready(function() {
       // iterate through all the elements with the checkbox class to see if they are checked
       $(".checkbox").each(function(){
         if ($(this).prop("checked")) {
-          // if checked assign the element id to the key "id" with an addtional key value to change the checkedIn value to true, then push into the gameSize array...each key-value pair will be called during the PUT Ajax request
+          // if checked assign the element id to the key "id" with an addtional key value of checkedIn as true, then push into the gameSize array...each key-value pair will be called during the PUT Ajax request
           gameSize.push({
             "id": $(this).attr("id"),
             "checkedIn": true
@@ -106,11 +119,32 @@ $(document).ready(function() {
           return;
         } else {
           console.log("more than 1", gameSize);
-          tableAssignment(gameSize);
+          var shuffleGame = shuffle(gameSize);
+          tableAssignment(shuffleGame);
         }
       });
     });
 
+//=============== Player Array Shuffle ===================
+    function shuffle(array) {
+      var currentIndex = array.length, temporaryValue, randomIndex;
+
+      // While there remain elements to shuffle...
+      while (0 !== currentIndex) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+      return array;
+    };
+
+//================= Assign Tables ====================
     function tableAssignment(gameLayout) {
       var numOfTables;
       var counter = 1;
@@ -150,11 +184,15 @@ $(document).ready(function() {
           data: assignments[i]
         })
         .then(function(newValues) {
-          console.log(newValues);
           newAssign.push(newValues);
         });
-      console.log("values", newAssign);
       }
-    }
 
+    }
 });
+
+// Alternative commander calls
+    // var commander = $("<input type='text' class='col-md-3 form-control editField' value="+ data[i].commander + " readonly /><div class='col-md-1 input-group-addon'><span class='glyphicon glyphicon-pencil hide'></span><span class='glyphicon glyphicon-ok hide'></span>");
+    // var commander = $("<input type='text' class='form-control' id='commander'"+[i]+"readonly><section class='input-group-addon'><span class='glyphicon glyphicon-pencil' onclick=editcommander+[i+1]+"></span></div>");
+    // // $(commander).append(editCommander);
+    // $("#commanderList").append(commander);
