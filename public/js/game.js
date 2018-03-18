@@ -1,5 +1,3 @@
-
-var queryURL;
 window.onload = function () {
 
     var supplementalCardsDiv = document.getElementById("supplementalCardsDiv");
@@ -58,10 +56,43 @@ window.onload = function () {
     //   console.log(cards);
 
 
-    var commanderCard = "Atraxa, Praetors' Voice";
-    queryURL = "https://api.deckbrew.com/mtg/cards?name=" + commanderCard;
-    // queryURL = "https://scryfall.com/search?q=%22Atraxa%2C+Praetors%27+Voice%22+OR+%22Freya%22&unique=cards&as=grid&order=name"; 
-    magicSearch(queryURL);
+    var commanderCardsArray = ["Atraxa, Praetors' Voice","Freya"];
+    var commanderCardsImageArray = [];
+    
+    const getImageURLs = () => {
+        const promises = [];
+        var queryURL = [];
+      
+        for (let index = 0; index < commanderCardsArray.length; index++) {
+            queryURL[index] = "https://api.deckbrew.com/mtg/cards?name=" + commanderCardsArray[index];
+            // queryURL = "https://scryfall.com/search?q=%22Atraxa%2C+Praetors%27+Voice%22+OR+%22Freya%22&unique=cards&as=grid&order=name"; 
+            promises.push(new Promise((resolve, reject) => {
+                $.ajax({
+                    url: queryURL[index],
+                    method: "GET"
+                })
+                .then(function(response) {
+                    commanderCardsImageArray[index] = response[0].editions[0].image_url;
+                })  
+            })) //promises.push
+        } //for (let index =   
+        return Promise.all(promises);
+    }; //const getImageURLs 
+     
+
+    const imageContents = getImageURLs().then(contents => {
+        console.log(contents)
+    })
+    .catch(err => console.error(err));
+};  //window.onload    
+    
+
+
+    
+    
+    // magicSearch(queryURL);
+
+    
     
     // for (let index = 0; index < commanderCardsArray.length; index++) {
     //     var cardName = commanderCardsArray[index];
@@ -79,21 +110,21 @@ window.onload = function () {
     //     commanderCardsImageArray[index] = magicSearch;
     // }
     // console.log(commanderCardsImageArray);
-};
+
 
 
 // Provide the image URL for a selected Commander Card
-function magicSearch() {
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    })
-    .then(function(response) {
-        console.log(queryURL);
-        var result = response[0].editions[0].image_url;
-        console.log(result);
-    });
-}
+// function magicSearch() {
+//     $.ajax({
+//       url: queryURL,
+//       method: "GET"
+//     })
+//     .then(function(response) {
+//         console.log(queryURL);
+//         var result = response[0].editions[0].image_url;
+//         console.log(result);
+//     });
+// }
 
     //   console.log(commanderCardImageURL);
 
