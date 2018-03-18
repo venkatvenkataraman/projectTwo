@@ -52,7 +52,7 @@
     </style>
 
     <div class="form-collection">
-      <form class="login">
+      
         <div class="card elevation-3 limit-width log-in-card below turned">
           <div class="card-body">
             <a>
@@ -62,28 +62,36 @@
 
           </div>
           <div class="card-footer">
-            <button type="submit" class="btn btn-primary" href="/login">Login</button>
+            <form action="/login">
+            <button id="loginButton" class="btn btn-primary" href="/login">Login</button>
+          </form>
 
           </div>
         </div>
 
         <div class="card elevation-2 limit-width sign-up-card above">
+          <form class="signup">
+
           <div class="card-body">
-            <form class="signup">
             <div class="input-group email">
                 <input type="email" class="form-control" id="email-input" placeholder="Email">
             </div>
             <div class="input-group password">
               <input type="password" class="form-control" id="password-input" placeholder="Password">
             </div>
+          
           </div>
+
           <div class="card-footer">
             <div style="display: none" id="alert" class="alert alert-danger" role="alert">
               <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
               <span class="sr-only">Error:</span> <span class="msg"></span>
             </div>
+
             <button type="submit" class="btn btn-primary">Sign Up</button>
+
           </div>
+        </form>
         </div>
       </div>
 
