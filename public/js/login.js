@@ -5,7 +5,7 @@ $(document).ready(function() {
   var passwordInput = $("input#password-input");
 
 
-  
+
   // When the form is submitted, we validate there's an email and password entered
   loginForm.on("submit", function(event) {
     event.preventDefault();
@@ -39,7 +39,7 @@ $(document).ready(function() {
 
 });
 
-$(document).on('click', '.below button', function(){
+$(document).on('click', '.card-footer', function(){
   var belowCard = $('.below'),
   aboveCard = $('.above'),
   parent = $('.form-collection');
